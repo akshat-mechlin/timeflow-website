@@ -1,0 +1,100 @@
+.pricing-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  padding: 2.5rem;
+  border-radius: var(--radius-xl);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  transition: all var(--transition-base);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(197, 37, 222, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.pricing-card.featured {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(197, 37, 222, 0.4);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  color: var(--white);
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.5);
+}
+
+.pricing-name {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--white);
+}
+
+.price {
+  margin-bottom: var(--spacing-lg);
+  min-height: 80px;
+  display: flex;
+  align-items: baseline;
+}
+
+.currency {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.amount {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.period {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-left: 0.25rem;
+}
+
+.features-list {
+  list-style: none;
+  margin-bottom: var(--spacing-lg);
+  flex-grow: 1;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.features-list li svg {
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .pricing-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .amount {
+    font-size: 2.5rem;
+  }
+}

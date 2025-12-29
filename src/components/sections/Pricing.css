@@ -1,0 +1,56 @@
+.pricing {
+  background: linear-gradient(135deg, rgba(197, 37, 222, 0.1) 0%, rgba(35, 40, 224, 0.1) 100%);
+}
+
+.pricing .section-header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.pricing .section-badge {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.pricing .section-title {
+  color: var(--white);
+}
+
+.pricing .section-description {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  max-width: 1000px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.pricing-note {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pricing-note p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+@media (max-width: 968px) {
+  .pricing-grid {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
