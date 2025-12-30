@@ -1,13 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Play, ArrowRight, Check } from 'lucide-react';
 import Button from '../ui/Button';
 import './Hero.css';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleStartTrial = () => {
+    navigate('/start-trial');
+  };
+
   return (
     <section className="hero">
       <div className="container hero-container">
-        {/* Hero Content */}
+        {/* Left Side - Hero Content */}
         <div className="hero-content">
           <div className="hero-badge">
             <Check size={16} />
@@ -24,7 +31,12 @@ const Hero = () => {
           </p>
           
           <div className="hero-buttons">
-            <Button variant="primary" size="large" icon={<ArrowRight size={20} />}>
+            <Button 
+              variant="primary" 
+              size="large" 
+              icon={<ArrowRight size={20} />}
+              onClick={handleStartTrial}
+            >
               Start Free Trial
             </Button>
             <Button variant="outline" size="large" icon={<Play size={20} />}>
@@ -48,9 +60,10 @@ const Hero = () => {
           </div>
         </div>
         
-        {/* Hero Image/Dashboard Mockup */}
+        {/* Right Side - Dashboard Mockup */}
         <div className="hero-image">
           <div className="dashboard-mockup">
+            {/* Mockup Header */}
             <div className="mockup-header">
               <div className="mockup-dots">
                 <span className="dot dot-red"></span>
@@ -61,7 +74,9 @@ const Hero = () => {
               <div className="mockup-actions"></div>
             </div>
             
+            {/* Mockup Content */}
             <div className="mockup-content">
+              {/* Stat Cards */}
               <div className="stat-cards">
                 <div className="stat-card stat-card-1">
                   <div className="stat-icon">⏱️</div>
@@ -82,6 +97,7 @@ const Hero = () => {
                 </div>
               </div>
               
+              {/* Activity Section */}
               <div className="activity-section">
                 <h4 className="activity-title">Recent Activity</h4>
                 <div className="progress-bar">
@@ -95,7 +111,7 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Floating Elements */}
+          {/* Floating Achievement Cards */}
           <div className="floating-element floating-1">
             <div className="mini-card">
               <div className="mini-icon">✓</div>

@@ -8,16 +8,21 @@ const Button = ({
   fullWidth = false,
   onClick,
   icon,
-  className = ''
+  className = '',
+  type = 'button'
 }) => {
-  const buttonClass = `btn btn-${variant} btn-${size} ${fullWidth ? 'btn-full' : ''} ${className}`;
+  const buttonClass = `btn btn-${variant} btn-${size} ${fullWidth ? 'btn-full' : ''} ${className}`.trim();
   
   return (
-    <button className={buttonClass} onClick={onClick}>
+    <button 
+      className={buttonClass} 
+      onClick={onClick}
+      type={type}
+    >
       {children}
       {icon && <span className="btn-icon">{icon}</span>}
     </button>
   );
 };
 
-export default Button;  // ← Make sure this line exists!
+export default Button;

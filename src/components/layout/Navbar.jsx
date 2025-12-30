@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Clock, Menu, X } from 'lucide-react';
 import Button from '../ui/Button';
-import { NAV_LINKS } from '../../utils/constants';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,34 +26,33 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const handleStartTrial = () => {
+    navigate('/start-trial');
+    closeMenu();
+  };
+
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           <img 
             src="/logo.svg"
             alt="TimeFlow Logo"
             className="logo-icon"
           />
           <span className="logo-text">TimeFlow</span>
-        </a>
+        </Link>
         
         <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          {NAV_LINKS.map(link => (
-
-
-            <a 
-              key={link.id} 
-              href={link.href}
-              onClick={closeMenu}
-              className="nav-link"
-            >
-              {link.label}
-            </a>
-          ))}
+          <a href="/#features" onClick={closeMenu} className="nav-link">Features</a>
+          <a href="/#pricing" onClick={closeMenu} className="nav-link">Pricing</a>
+          <Link to="/about" onClick={closeMenu} className="nav-link">About</Link>
+          <Link to="/contact" onClick={closeMenu} className="nav-link">Contact</Link>
           <div className="nav-buttons">
             <Button variant="secondary" size="small">Sign In</Button>
-            <Button variant="primary" size="small">Start Free Trial</Button>
+            <Button variant="primary" size="small" onClick={handleStartTrial}>
+              Start Free Trial
+            </Button>
           </div>
         </div>
 
